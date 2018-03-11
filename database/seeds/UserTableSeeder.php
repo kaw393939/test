@@ -14,12 +14,12 @@ class UserTableSeeder extends Seeder
     public function run()
     {
 
-        factory(App\User::class, 1)->create()->each(function ($user) {
+        factory(App\User::class, 20)->create()->each(function ($user) {
 
             $channel1 = Channel::find(1);
             $channel2 = Channel::find(2);
             $user->channels()->attach($channel1,['active' => TRUE]);
-            $user->channels()->attach($channel2,['active' => FALSE]);
+            $user->channels()->attach($channel2,['active' => TRUE]);
             $channels = $user->channels;
             $user->profile()->save(factory(App\Profile::class)->make());
 

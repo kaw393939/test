@@ -65,17 +65,18 @@ class User extends Authenticatable
         return $this->morphedByMany(Content::class, 'entity', 'members', 'user_id', 'entity_id')->withTimestamps();
     }
 
-    public function getNotificationPref()
+    public function getNotificationPref($OverideChannel = NULL)
     {
+        if(is_null($OverideChannel)) {
+            $ActiveChannels = $this->channels()->where('active', 1)->get();
+            foreach ($ActiveChannels as $channel) {
 
-        $channels = $this->channels()->where('active',1)->get();
-
-        foreach ($channels as $channel) {
-
-            $array[] = $channel->name;
+                $NotifyChannels[] = $channel->name;
+            }
+        } else {
+            $NotifyChannels[] = $OverideChannel;
         }
-
-        return $array;
+        return $NotifyChannels;
     }
 
 }

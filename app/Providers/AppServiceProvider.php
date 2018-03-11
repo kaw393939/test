@@ -6,7 +6,9 @@ use Illuminate\Support\ServiceProvider;
 use App\Profile;
 use App\Observers\ProfileObserver;
 use App\User;
+use App\Course;
 use App\Observers\UserObserver;
+use App\Observers\CourseObserver;
 
 
 
@@ -22,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
         //
         Profile::observe(ProfileObserver::class);
         User::observe(UserObserver::class);
+        Course::observe(CourseObserver::class);
 
     }
 

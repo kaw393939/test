@@ -6,9 +6,10 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-
-class UserWelcome extends Notification
+use App\Course;
+class CourseNotification extends Notification
 {
+    public $course;
     use Queueable;
 
     /**
@@ -16,9 +17,9 @@ class UserWelcome extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Course $course)
     {
-        //
+        $this->Course = $course;
     }
 
     /**
@@ -44,7 +45,7 @@ class UserWelcome extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
+                    ->line('This is a course Notification')
                     ->action('Notification Action', url('/'))
                     ->line('Thank you for using our application!');
     }
