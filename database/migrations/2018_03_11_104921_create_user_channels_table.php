@@ -17,6 +17,7 @@ class CreateUserChannelsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('channel_id');
+            $table->boolean('active')->nullable();
             $table->timestamps();
         });
     }

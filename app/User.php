@@ -36,6 +36,10 @@ class User extends Authenticatable
 
         return $this->hasOne('App\systemRole', 'user_id', 'id');
     }
+    public function channels() {
+
+        return $this->belongsToMany('App\Channel', 'user_channels', 'user_id', 'channel_id');
+    }
 
     public function addGroup($group)
     {
@@ -60,4 +64,18 @@ class User extends Authenticatable
     {
         return $this->morphedByMany(Content::class, 'entity', 'members', 'user_id', 'entity_id')->withTimestamps();
     }
+
+    public function getNotificationPref()
+    {
+
+        $channels = $this->channels()->where('active',1)->get();
+
+        foreach ($channels as $channel) {
+
+            $array[] = $channel->name;
+        }
+
+        return $array;
+    }
+
 }

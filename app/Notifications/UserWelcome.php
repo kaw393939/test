@@ -29,7 +29,10 @@ class UserWelcome extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        $channels = $notifiable->getNotificationPref();
+
+
+        return $channels;
     }
 
     /**

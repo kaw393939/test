@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             EventTableSeeder::class,
             ContentTableSeeder::class,
             ResourceEntityTableSeeder::class,
-
+            UserChannelTableSeeder::class,
 
 
         ]);

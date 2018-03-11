@@ -19,7 +19,7 @@ class CreateProfilesTable extends Migration
             //rest of fields then...
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title');
-            $table->string('body')->nullable();
+            $table->longtext('body')->nullable();
             $table->string('fname')->nullable();
             $table->string('lname')->nullable();
             $table->date('birthday')->nullable();

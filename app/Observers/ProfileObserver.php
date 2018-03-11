@@ -13,9 +13,10 @@ class ProfileObserver
      * @param  \App\User $user
      * @return void
      */
-    public function saved(Profile $profile)
+    public function created(Profile $profile)
     {
         $user = $profile->user;
+
 
         $user->notify(new UserWelcome());
         //$user->notify(new UserWelcome());

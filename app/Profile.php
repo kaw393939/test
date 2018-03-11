@@ -11,12 +11,5 @@ class Profile extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function getNotificationPref()
-    {
 
-
-        $preferences = ['database' => 1, 'mail' => $this->email];
-
-        return $preferences;
-    }
 }
