@@ -15,11 +15,18 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'App\Events\Event' => [
             'App\Listeners\EventListener',
-        ], 'App\Events\CourseOwnerAdded' => [
-            'App\Listeners\CourseCreationNotify'
         ],
-        'App\Events\CourseMemberAdded' => [
-            'App\Listeners\CourseMemberAddNotify'
+        'App\Events\EventOwnerAdded' => [
+            'App\Listeners\EventListenerOwnerAddNotify'
+        ],
+        'App\Events\EventEditorAdded' => [
+            'App\Listeners\EventListenerEditorAddNotify'
+        ],
+        'App\Events\EventMemberAdded' => [
+            'App\Listeners\EventListenerMemberAddNotify'
+        ],
+        'App\Events\SubscriberAdded' => [
+            'App\Listeners\EventListenerSubscriberAddNotify'
         ],
     ];
 

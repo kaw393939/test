@@ -13,7 +13,7 @@ class ContentTableSeeder extends Seeder
     {
         factory(App\Content::class, 100)->create()->each(function ($content) {
             $user = App\User::inRandomOrder()->first();
-            $content->users()->attach($user, ['role_id' => 1]);
+            $content->members()->attach($user, ['role_id' => 1]);
         });
     }
 }

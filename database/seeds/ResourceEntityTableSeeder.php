@@ -19,15 +19,15 @@ class ResourceEntityTableSeeder extends Seeder
             $event = App\Event::inRandomOrder()->first();
             $content = App\Content::inRandomOrder()->first();
 
-            $group->content()->attach($content);
-            $group->events()->attach($event);
+            $group->contentResources()->attach($content);
+            $group->eventResources()->attach($event);
 
-            $event->groups()->attach($group);
-            $event->content()->attach($content);
+            $event->groupResources()->attach($group);
+            $event->contentResources()->attach($content);
 
-            $course->groups()->attach($group);
-            $course->content()->attach($content);
-            $course->events()->attach($event);
+            $course->groupResources()->attach($group);
+            $course->contentResources()->attach($content);
+            $course->eventResources()->attach($event);
         }
 
     }

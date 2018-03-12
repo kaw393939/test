@@ -13,7 +13,7 @@ class EventTableSeeder extends Seeder
     {
         factory(App\Event::class, 10)->create()->each(function ($event) {
             $user = App\User::inRandomOrder()->first();
-            $event->attendees()->attach($user, ['role_id' => 1]);
+            $event->members()->attach($user, ['role_id' => 1]);
         });
     }
 }

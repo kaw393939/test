@@ -2,12 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\CourseOwnerAdded;
+use App\Events\EventMemberAdded;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Notifications\CourseNotification;
 
-class CourseCreationNotify
+class EventListenerMemberAddNotify
 {
     /**
      * Create the event listener.
@@ -22,13 +21,11 @@ class CourseCreationNotify
     /**
      * Handle the event.
      *
-     * @param  CourseOwnerAdded  $event
+     * @param  EventMemberAdded  $event
      * @return void
      */
-    public function handle(CourseOwnerAdded $event)
+    public function handle(EventMemberAdded $event)
     {
-        $user = $event->user;
-        $course = $event->course;
-        $user->notify(new CourseNotification($course));
+        //
     }
 }

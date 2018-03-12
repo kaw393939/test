@@ -9,25 +9,19 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use App\Course;
-use App\User;
-class CourseOwnerAdded
+
+class EventEditorAdded
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $course;
-    public $user;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Course $course, User $user)
+    public function __construct()
     {
         //
-        $this->course = $course;
-        $this->user = $user;
-
-
     }
 
     /**

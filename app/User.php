@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Traits\Entity;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use Entity;
     /**
      * The attributes that are mass assignable.
      *
@@ -39,30 +41,6 @@ class User extends Authenticatable
     public function channels() {
 
         return $this->belongsToMany('App\Channel', 'user_channels', 'user_id', 'channel_id');
-    }
-
-    public function addGroup($group)
-    {
-        return $this->morphedByMany(Group::class, 'entity', 'members', 'user_id', 'entity_id')->withTimestamps();
-    }
-    public function groups()
-    {
-        return $this->morphedByMany(Group::class, 'entity', 'members', 'user_id', 'entity_id')->withTimestamps();
-    }
-
-    public function events()
-    {
-        return $this->morphedByMany(Event::class, 'entity', 'members', 'user_id', 'entity_id')->withTimestamps();
-    }
-
-    public function courses()
-    {
-        return $this->morphedByMany(Course::class, 'entity', 'members', 'user_id', 'entity_id')->withTimestamps();
-    }
-
-    public function content()
-    {
-        return $this->morphedByMany(Content::class, 'entity', 'members', 'user_id', 'entity_id')->withTimestamps();
     }
 
     public function getNotificationPref($OverideChannel = NULL)
