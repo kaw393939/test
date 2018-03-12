@@ -13,15 +13,18 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 class EventOwnerAdded
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
+    public $resource;
+    public $user;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($resource, $user)
     {
-        //
+        $this->resource = $resource;
+        $this->user = $user;
+
     }
 
     /**

@@ -14,7 +14,7 @@ trait Entity
 {
     public function members()
     {
-        return $this->morphToMany(User::class, 'entity', 'members', 'entity_id', 'user_id')->withTimestamps();
+        return $this->morphToMany(User::class, 'entity', 'members', 'user_id', 'entity_id')->withTimestamps();
     }
 
     public function groups()

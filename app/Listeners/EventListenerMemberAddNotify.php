@@ -27,5 +27,8 @@ class EventListenerMemberAddNotify
     public function handle(EventMemberAdded $event)
     {
         //
+        $resource = $event->resource;
+        $user = $event->user;
+
     }
 }

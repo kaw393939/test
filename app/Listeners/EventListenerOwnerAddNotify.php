@@ -26,6 +26,6 @@ class EventListenerOwnerAddNotify
      */
     public function handle(EventOwnerAdded $event)
     {
-        //
+
     }
 }

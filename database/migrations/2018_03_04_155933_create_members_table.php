@@ -17,7 +17,7 @@ class CreateMembersTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('entity_id')->index();
             $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('entity_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('entity_type');
             $table->integer('role_id');
             $table->timestamps();

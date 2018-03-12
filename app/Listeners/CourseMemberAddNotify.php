@@ -28,12 +28,7 @@ class CourseMemberAddNotify
      */
     public function handle(CourseMemberAdded $event)
     {
-        $course = $event->course;
-        $members = $course->enrollment;
 
-        foreach ($members as $user) {
-           $user->notify(new CourseNotification($course));
-        }
 
 
 
